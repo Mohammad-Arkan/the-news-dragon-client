@@ -18,11 +18,11 @@ const RightNav = () => {
           </ListGroup>
     <QZoon></QZoon>
     <div>
-      <img className='position-relative' src={bg} alt="" />
+      <img className='' src={bg} alt="" />
       <div className='bg-secondary text-center position-absolute top-100 left-100'>
-        <h2>Create an Amazing Newspaper</h2>
+        {/* <h2>Create an Amazing Newspaper</h2>
         <p>Discover thousands of options, easy to customize layouts, one-click to import demo and much more.</p>
-        <Button variant="primary">Primary</Button>{' '}
+        <Button variant="primary">Primary</Button>{' '} */}
       </div>
     </div>
         </div>
