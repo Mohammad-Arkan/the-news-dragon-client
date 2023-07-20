@@ -8,6 +8,7 @@ import { useState } from 'react';
 const Register = () => {
     const {createUser} = useContext(AuthContex)
     const [success, setSuccess] = useState('')
+    const [accepted, setAccepted] = useState(false)
 const handleSignUp =(event) => {
     event.preventDefault()
  const form = event.target;
@@ -28,6 +29,10 @@ createUser(email, password)
  .catch((error)=> {
     console.log(error)
  })
+}
+
+const handleAccepted =(event) => {
+   setAccepted(event.target.checked)
 }
     return (
         <Container className='bg-primary-subtle mx-auto w-50 mt-4 p-4'> 
@@ -51,10 +56,14 @@ createUser(email, password)
             <Form.Control type="password" name='password' placeholder="Password" required/>
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" name='accept' label="Accept Term & Conditions" />
+            <Form.Check 
+            onClick={handleAccepted}
+            type="checkbox" 
+            name='accept' 
+            label={<>Accept <Link to="/terms">Term & Conditions</Link></>}/>
         </Form.Group>
-        <Button className='d-block mb-2' variant="primary" type="submit">
-            Submit
+        <Button className='d-block mb-2'disabled={!accepted} variant="primary" type="submit">
+            Register
         </Button>
         <Form.Text className="text-success d-block">
         Already have an Account please? <Link to="/login" className='text-danger'>LogIn</Link>
